@@ -15,9 +15,6 @@ class MainPageLocators:
     # Заголовок блока "Вопросы о важном"
     FAQ_TITLE = (By.XPATH, ".//div[text()='Вопросы о важном']")
 
-    # # Список пунктов блока "Вопросы о важном"
-    # FAQ_NUM = (By.XPATH, ".//div[@class='accordion__button']")
-
     # Вопросы раздела "Вопросы о важном":
     NUM_1 = (By.XPATH, "//div[@id='accordion__heading-0']/parent::div")
     NUM_2 = (By.XPATH, "//div[@id='accordion__heading-1']/parent::div")
@@ -39,3 +36,8 @@ class MainPageLocators:
     ANS_8 = (By.XPATH, "//div[@id='accordion__panel-7']")
 
 
+    # Логотип Самокат
+    LOGO_SCOOTER = (By.XPATH, '//a[contains(@class, "Header_LogoScooter")]')
+    # Логотип Яндекс
+    LOGO_YA = (By.XPATH, '//a[contains(@class, "Header_LogoYandex")]')
+    DZEN_NEWS_TITLE = (By.XPATH, '//div[@data-testid="floor-title-text" and text()="Новости"]')

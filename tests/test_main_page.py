@@ -2,7 +2,6 @@ import allure
 import pytest
 
 from pages.main_page import MainPage
-from tests import data
 from locators.main_page_locators import MainPageLocators
 from tests.data import ImportantQuestions
 
@@ -34,10 +33,3 @@ class TestMainPage:
         assert main_page.get_text_from_faq_answers(answer) == expected_text
 
 
-
-    # def test_click_to_faq_returns_true_answers(self, driver, num, expected_text):
-    #     main_page = MainPage(driver)
-    #     main_page.tap_num_question_button()
-    #     assert main_page.get_text_on_element(num) == expected_text
-    #     # main_page.accept_cookies()
-    #     # assert main_page.get_expected_text(num) == expected_text

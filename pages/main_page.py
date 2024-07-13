@@ -1,3 +1,4 @@
+
 from pages.base_page import BasePage
 import locators.main_page_locators as locators
 import allure
@@ -17,41 +18,33 @@ class MainPage(BasePage):
         self.wait_for_element_to_be_clickable(num)
         self.click_on_element(num)
 
+    @allure.step('')
     def get_text_from_faq_answers(self, locator):
         expected_text = self.driver.find_element(*locator).text
         return expected_text
 
-    # @allure.step('Проверка открытия текста ответа на выбранный вопрос')
-    # def check_answer_text(self, answer, expected_text):
-    #     self.wait_for_visibility_of_element(answer)
-    #     actually_text = self.get_actually_text(answer)
-    #     assert actually_text == expected_text
-    # actually_text = self.driver.find_element(*locator).text
-    # return actually_text
 
-    # @allure.step('Перейти к форме заказа')
-    # def go_to_order_page(self):
-    #     self.click_to_element(locators.HEADER_ORDER_BUTTON)
-    #
-    # @allure.step('Получаем текст ответа по порядковому номеру вопроса')
-    # def get_answers_text(self):
-    # all_elements = self.find_elements_located(SearchPageLocators.NAVI_BAR)
-    # return [x.text for x in all_elements]
-    #     locator_question_formatted = self.format_locator(locators.QUESTION, num)
-    #     locator_answer_formatted = self.format_locator(locators.ANSWER, num)
-    #     self.scroll_to_element(locator_question_formatted)
-    #     self.click_to_element(locator_question_formatted)
-    #     return self.get_text_from_element(locator_answer_formatted)
-    #
-    # @allure.step('Открываем форму заказа по кнопке вверху страницы')
-    # def open_person_info_form_by_header_button(self):
-    #     self.click_to_element(locators.HEADER_ORDER_BUTTON)
-    #
-    # @allure.step('Открываем форму заказа по кнопке внизу страницы')
-    # def open_person_info_form_by_content_button(self):
-    #     self.scroll_to_element(locators.CONTENT_ORDER_BUTTON)
-    #     self.click_to_element(locators.CONTENT_ORDER_BUTTON)
-    #
-    # @allure.step('Получаем текст заголовка на главной странице')
-    # def get_main_header_text(self):
-    #     return self.find_element_with_wait(locators.HOME_PAGE_HEADER).text
+    @allure.step('Клик на кнопку «Заказать»')
+    def click_order_button(self, button):
+        self.scroll_to_element(button)
+        self.wait_for_element_to_be_clickable(button)
+        self.click_on_element(button)
+
+    @allure.step('Клик на самокат в логотипе')
+    def tap_on_scooter_in_logo_main(self):
+        self.wait_for_element_to_be_clickable(locators.MainPageLocators.LOGO_SCOOTER)
+        self.click_on_element(locators.MainPageLocators.LOGO_SCOOTER)
+
+    @allure.step('Берем текущий адрес')
+    def take_current_url(self, driver):
+        current_url = driver.current_url
+        return current_url
+
+    @allure.step('Переключаемся на Дзен')
+    def go_to_dzen_by_ya_logo(self):
+        self.click_on_element(locators.MainPageLocators.LOGO_YA)
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.wait_for_visibility_of_element(locators.MainPageLocators.DZEN_NEWS_TITLE)
+
+
+
