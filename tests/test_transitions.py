@@ -3,7 +3,7 @@ import allure
 import pytest
 from pages.main_page import MainPage
 
-
+@allure.suite('Тесты переходов по логотипу')
 class TestTransitionPage:
 
     @allure.description('Проверка перехода на главную по клику на самокат в логотипе')

@@ -9,8 +9,7 @@ from tests.data import ImportantQuestions
 @allure.suite('Тесты главной страницы')
 class TestMainPage:
 
-    @allure.title('Проверка блока «Вопросы о важном»')
-    @allure.description('Проверка соответствия текста ответов пунктам выпадающего списка')
+    @allure.description('Проверка соответствия текста ответов пунктам выпадающего списка в блоке "Вопросы о важном"')
     @pytest.mark.parametrize(
         'num, answer, expected_text',
         [
