@@ -12,3 +12,8 @@ class ImportantQuestions:
 class OrderForm:
     type1 = ['Тест', 'Тестинян', 'улица Тестовская, 7', 'Черкизовская', '+70009997755', '10072024']
     type2 = ['Янина', 'Яблонская', 'мимо-9', 'Сокольники', '+79998887766', '11.08.2027']
+
+
+
+HOME_URL = 'https://qa-scooter.praktikum-services.ru/'
+ZEN_URL = 'https://dzen.ru/?yredirect=true'

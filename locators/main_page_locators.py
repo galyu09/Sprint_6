@@ -9,8 +9,6 @@ class MainPageLocators:
     # Вторая кнопка 'Заказать' после карты статусов на главной
     LOWER_ORDER_BUTTON = (By.XPATH, '//div[contains(@class, "Home_FinishButton")]/button[text()="Заказать"]')
 
-    # # Кнопка информера про куки
-    # ACCEPT_COOKIE_BUTTON = (By.XPATH, ".//button[@id='rcc-confirm-button']")
 
     # Заголовок блока "Вопросы о важном"
     FAQ_TITLE = (By.XPATH, ".//div[text()='Вопросы о важном']")

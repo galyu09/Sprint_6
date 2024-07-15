@@ -7,10 +7,11 @@ from pages.base_page import BasePage
 
 class OrderPage(BasePage):
 
+    @allure.step('Выбрать станцию метро')
     def select_metro_station(self, data):
         self.click_on_element(locators.OrderPageLocators.METRO_FIELD)
         metro_locator = (
-            locators.OrderPageLocators.METRO[0], # By.XPATH
+            locators.OrderPageLocators.METRO[0],
             locators.OrderPageLocators.METRO[1].format(data[3])
         )
         self.find_element(metro_locator)
@@ -24,7 +25,6 @@ class OrderPage(BasePage):
         self.fill_input_field(locators.OrderPageLocators.SURNAME_FIELD, data[1])
         self.fill_input_field(locators.OrderPageLocators.ADDRESS_FIELD, data[2])
         self.select_metro_station(data)
-        # self.fill_input_field(locators.OrderPageLocators.METRO_FIELD, data[3])
         self.fill_input_field(locators.OrderPageLocators.PHONE, data[4])
 
     @allure.step('Тап на кнопку "Далее"')
@@ -51,13 +51,12 @@ class OrderPage(BasePage):
         self.wait_for_visibility_of_element(locators.OrderPageLocators.YES_BUTTON)
         self.click_on_element(locators.OrderPageLocators.YES_BUTTON)
 
-    # def get_order_info_header(self):
-    #     get_order_info_header
+
     @allure.step('Проверка наличия формы подтверждения оформленного заказа')
     def check_order_form_send_true(self):
         order_finish_header = self.find_element(locators.OrderPageLocators.CONFIRMATION_ORDER_FORM_HEADER)
         assert 'Заказ оформлен' in order_finish_header.text
-        # self.driver.find_element(locators.OrderPageLocators.CONFIRMATION_ORDER_FORM_HEADER).is_displayed()
+
 
     @allure.step('Тап на Скутер в лого')
     def tap_on_scooter_in_logo(self):

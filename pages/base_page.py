@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import allure
 
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -34,3 +35,10 @@ class BasePage:
     def fill_input_field(self, locator, value):
         self.driver.find_element(*locator).send_keys(value)
 
+    @allure.step('Берем текущий адрес страницы')
+    def take_current_url(self):
+        return self.driver.current_url
+
+    @allure.step('Переключаемся на другую вкладку')
+    def switch_to_window(self, tab_count):
+        self.driver.switch_to.window(self.driver.window_handles[tab_count])

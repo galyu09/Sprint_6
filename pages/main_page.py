@@ -18,9 +18,9 @@ class MainPage(BasePage):
         self.wait_for_element_to_be_clickable(num)
         self.click_on_element(num)
 
-    @allure.step('')
+    @allure.step('Получить текст ответов на вопросы в разделе FAQ')
     def get_text_from_faq_answers(self, locator):
-        expected_text = self.driver.find_element(*locator).text
+        expected_text = self.find_element(*locator).text
         return expected_text
 
 
@@ -35,15 +35,12 @@ class MainPage(BasePage):
         self.wait_for_element_to_be_clickable(locators.MainPageLocators.LOGO_SCOOTER)
         self.click_on_element(locators.MainPageLocators.LOGO_SCOOTER)
 
-    @allure.step('Берем текущий адрес')
-    def take_current_url(self, driver):
-        current_url = driver.current_url
-        return current_url
+
 
     @allure.step('Переключаемся на Дзен')
     def go_to_dzen_by_ya_logo(self):
         self.click_on_element(locators.MainPageLocators.LOGO_YA)
-        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.switch_to_window(1)
         self.wait_for_visibility_of_element(locators.MainPageLocators.DZEN_NEWS_TITLE)
 
 

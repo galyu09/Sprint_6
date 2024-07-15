@@ -29,6 +29,6 @@ class TestMainPage:
         main_page.wait_for_visibility_of_element(num)
         main_page.tap_on_faq_question(num)
         main_page.wait_for_visibility_of_element(answer)
-        assert main_page.get_text_from_faq_answers(answer) == expected_text
+        assert main_page.find_element(answer).text == expected_text
 
 
