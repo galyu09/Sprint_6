@@ -20,7 +20,8 @@ class TestOrderPage:
         order_page.fill_order_form(data)
         order_page.tap_on_final_order_button()
         order_page.tap_on_confirmation_button()
-        order_page.check_order_form_send_true()
+        order_finish_header = order_page.find_element(OrderPageLocators.CONFIRMATION_ORDER_FORM_HEADER)
+        assert 'Заказ оформлен' in order_finish_header.text
         order_page.tap_on_check_status_button()
         order_page.tap_on_scooter_in_logo()
 

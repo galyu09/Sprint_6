@@ -52,12 +52,6 @@ class OrderPage(BasePage):
         self.click_on_element(locators.OrderPageLocators.YES_BUTTON)
 
 
-    @allure.step('Проверка наличия формы подтверждения оформленного заказа')
-    def check_order_form_send_true(self):
-        order_finish_header = self.find_element(locators.OrderPageLocators.CONFIRMATION_ORDER_FORM_HEADER)
-        assert 'Заказ оформлен' in order_finish_header.text
-
-
     @allure.step('Тап на Скутер в лого')
     def tap_on_scooter_in_logo(self):
         self.wait_for_element_to_be_clickable(locators.OrderPageLocators.LOGO_SCOOTER)
